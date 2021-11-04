@@ -1,10 +1,10 @@
-# :name
+# bc-expr
 
-[![Tests](https://github.com/felixdorn/:name/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/felixdorn/:name/actions/workflows/tests.yml)
-[![Formats](https://github.com/felixdorn/:name/actions/workflows/formats.yml/badge.svg?branch=master)](https://github.com/felixdorn/:name/actions/workflows/formats.yml)
-[![Version](https://poser.pugx.org/felixdorn/:name/version)](//packagist.org/packages/felixdorn/:name)
-[![Total Downloads](https://poser.pugx.org/felixdorn/:name/downloads)](//packagist.org/packages/felixdorn/:name)
-[![License](https://poser.pugx.org/felixdorn/:name/license)](//packagist.org/packages/felixdorn/:name)
+[![Tests](https://github.com/felixdorn/bc-expr/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/felixdorn/bc-expr/actions/workflows/tests.yml)
+[![Formats](https://github.com/felixdorn/bc-expr/actions/workflows/formats.yml/badge.svg?branch=master)](https://github.com/felixdorn/bc-expr/actions/workflows/formats.yml)
+[![Version](https://poser.pugx.org/felixdorn/bc-expr/version)](//packagist.org/packages/felixdorn/bc-expr)
+[![Total Downloads](https://poser.pugx.org/felixdorn/bc-expr/downloads)](//packagist.org/packages/felixdorn/bc-expr)
+[![License](https://poser.pugx.org/felixdorn/bc-expr/license)](//packagist.org/packages/felixdorn/bc-expr)
 
 ## Installation
 
@@ -13,7 +13,7 @@
 You can install the package via composer:
 
 ```bash
-composer require felixdorn/:name
+composer require felixdorn/bc-expr
 ```
 
 ## Usage
@@ -24,4 +24,4 @@ composer require felixdorn/:name
 composer test
 ```
 
-**:name** was created by **[Félix Dorn](https://twitter.com/afelixdorn)** under the **[MIT license](https://opensource.org/licenses/MIT)**.
+**bc-expr** was created by **[Félix Dorn](https://twitter.com/afelixdorn)** under the **[MIT license](https://opensource.org/licenses/MIT)**.
