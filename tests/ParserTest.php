@@ -14,17 +14,17 @@ it('can bind variables in an expression', function () {
         'b' => 2,
     ]);
 
-    expect($output)->toBe('3');
+    expect($output)->toBe('3.0000000000000000');
 });
 
 it('does operations in the right order', function () {
     $output = Sey::parse('1 + 2 * 5');
-    expect($output)->toBe('11');
+    expect($output)->toBe('11.0000000000000000');
 });
 
 it('does operations in parentheses first', function () {
     $output = Sey::parse('10 * (5 + 2)');
-    expect($output)->toBe('70');
+    expect($output)->toBe('70.0000000000000000');
 });
 
 it('can define and call functions', function () {
@@ -34,4 +34,12 @@ it('can define and call functions', function () {
 
     $output = Sey::parse('seven(1)');
     expect($output)->toBe('8');
+
+    $output = Sey::parse('1 + seven(1)');
+    expect($output)->toBe('9.0000000000000000');
 });
+
+
+it('can define an arbitrary precision');
+
+it('can compare two values',);
