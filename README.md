@@ -2,8 +2,8 @@
 
 # Sey
 
-[![Tests](https://github.com/felixdorn/sey/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/felixdorn/sey/actions/workflows/tests.yml)
-[![Formats](https://github.com/felixdorn/sey/actions/workflows/formats.yml/badge.svg?branch=master)](https://github.com/felixdorn/sey/actions/workflows/formats.yml)
+[![Tests](https://github.com/felixdorn/sey/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/felixdorn/sey/actions/workflows/tests.yml)
+[![Formats](https://github.com/felixdorn/sey/actions/workflows/formats.yml/badge.svg?branch=main)](https://github.com/felixdorn/sey/actions/workflows/formats.yml)
 [![Version](https://poser.pugx.org/felixdorn/sey/version)](//packagist.org/packages/felixdorn/sey)
 [![Total Downloads](https://poser.pugx.org/felixdorn/sey/downloads)](//packagist.org/packages/felixdorn/sey)
 [![License](https://poser.pugx.org/felixdorn/sey/license)](//packagist.org/packages/felixdorn/sey)
