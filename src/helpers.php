@@ -3,9 +3,9 @@
 use Felix\Sey\Sey;
 
 if (!function_exists('sey')) {
-    function sey(string $code, array $variables = []): string
+    function sey(string $code, array $variables = [], array $functions = [], ?int $precision = null): string
     {
-        return Sey::parse($code, $variables);
+        return Sey::parse($code, $variables, $functions, $precision);
     }
 }
 

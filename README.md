@@ -22,19 +22,21 @@ composer require felixdorn/sey
 
 ## Usage
 
-### Floating Point Precision
+```php
+Sey::parse('(0.5 + 0.5) / 3)') // 0.3333333333333333
+// or
+sey('a / b', ['a' => 1, 'b' => 2]) // 0.5
+```
 
-By default, the precision is 16 which is roughly equal to the PHP default (even though it is platform-dependent, it's
-very common).
+### Precision
+
+By default, the maximum floating precision is 16.
 
 You may change it:
 
 ```php
 \Felix\Sey\Sey:precision(32)
 ```
-
-Under the hood, it just calls `bcscale` for the calculation and then rollbacks to the previous value as to not create
-side effects.
 
 ## Syntax
 
@@ -61,7 +63,7 @@ pi()
 You can not define variables in your code but you can pass them at compile-time.
 
 ```php
-sey('2 * r * pi', [
+Sey::parse('2 * r * pi', [
     'r' => 10,
     'pi' => 3.1415
 ])
@@ -81,19 +83,20 @@ sey('2 * r * pi', [
 
 #### Custom functions
 
-They can override built-ins so you can redefine `!` to use a lookup table for example.
+> You can override built-ins functions.
 
 ```php
 Sey::define('!', function (int $n, /* as many arguments as you want */) {
     return $factorials[$n] ?? bcfact($n);
 });
 ```
+
 The function name must match the following regex `[a-z_A-Z!]+[a-z_A-Z0-9]*`.
 
 So, first character must be a letter or ! followed by any number of letters or numbers.
 
-
 ### Tests
+
 ```bash
 composer test
 ```

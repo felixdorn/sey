@@ -27,7 +27,7 @@ it('does operations in parentheses first', function () {
     expect($output)->toBe('70.0000000000000000');
 });
 
-it('can define and call functions', function () {
+it('can call non-std functions', function () {
     Sey::define('seven', function ($delta) {
         return 7 + $delta;
     });
@@ -37,6 +37,15 @@ it('can define and call functions', function () {
 
     $output = Sey::parse('1 + seven(1)');
     expect($output)->toBe('9.0000000000000000');
+});
+
+it('can call functions with x arguments', function () {
+    Sey::define('called_with', function () {
+        return func_num_args();
+    });
+
+    $output = Sey::parse('called_with(1,1,1,1,1)');
+    expect($output)->toBe('5');
 });
 
 it('can define an arbitrary precision', function () {

@@ -8,7 +8,7 @@ use Felix\Sey\Runtime;
 
 class Operator extends Token
 {
-    public static function valid(string $value): bool
+    public static function isValid(string $value): bool
     {
         return match ($value) {
             '+', '-', '*', '/', '%', '^' => true,

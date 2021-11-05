@@ -3,6 +3,7 @@
 namespace Felix\Sey;
 
 use Felix\Sey\Tokens\CloseParenthesis;
+use Felix\Sey\Tokens\Comma;
 use Felix\Sey\Tokens\Func;
 use Felix\Sey\Tokens\Identifier;
 use Felix\Sey\Tokens\Number;
@@ -37,7 +38,9 @@ class Scanner
                 continue;
             }
 
-            if ($value === ')') {
+            if ($value === ',') {
+                $tokens->push(new Comma());
+            } elseif ($value === ')') {
                 $tokens->push(new CloseParenthesis());
             } elseif ($value === '(') {
                 if ($behind === ')' || is_numeric($behind)) {
@@ -45,7 +48,7 @@ class Scanner
                 }
 
                 $tokens->push(new OpenParenthesis());
-            } elseif (Operator::valid($value)) {
+            } elseif (Operator::isValid($value)) {
                 $tokens->push(new Operator($value));
             } elseif ($ahead === '(') {
                 $tokens->push(new Func($value));

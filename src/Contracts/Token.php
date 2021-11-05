@@ -11,10 +11,5 @@ abstract class Token
     {
     }
 
-    public static function empty(): NullToken
-    {
-        return new NullToken();
-    }
-
     abstract public function consume(Runtime $runtime): void;
 }

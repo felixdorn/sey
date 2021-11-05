@@ -29,7 +29,7 @@ class Sey
         return $precision;
     }
 
-    public static function parse(string $expression, array $variables = [], array $functions = []): string
+    public static function parse(string $expression, array $variables = [], array $functions = [], ?int $precision = null): string
     {
         $expression = trim($expression);
 
@@ -41,7 +41,7 @@ class Sey
             $expression,
             $variables,
             array_merge(static::$functions, $functions),
-            static::$precision
+            $precision ?? static::$precision
         );
 
         return $runtime->run();
