@@ -1,6 +1,6 @@
 {
-    "name": "felixdorn/bc-expr",
-    "description": "bc-expr",
+    "name": "felixdorn/sey",
+    "description": "Sey is a powerful math interpreter with infinite-precision.",
     "license": "MIT",
     "authors": [
         {
@@ -26,11 +26,6 @@
             "src/helpers.php"
         ]
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Felix\\Sey\\Tests\\": "tests/"
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
@@ -44,7 +39,6 @@
         "test:unit": "pest --colors=always",
         "test": [
             "@test:lint",
-            "@test:types",
             "@test:unit"
         ]
     }
