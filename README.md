@@ -2,11 +2,11 @@
 
 # Sey
 
-[![Tests](https://github.com/felixdorn/bc-expr/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/felixdorn/bc-expr/actions/workflows/tests.yml)
-[![Formats](https://github.com/felixdorn/bc-expr/actions/workflows/formats.yml/badge.svg?branch=master)](https://github.com/felixdorn/bc-expr/actions/workflows/formats.yml)
-[![Version](https://poser.pugx.org/felixdorn/bc-expr/version)](//packagist.org/packages/felixdorn/bc-expr)
-[![Total Downloads](https://poser.pugx.org/felixdorn/bc-expr/downloads)](//packagist.org/packages/felixdorn/bc-expr)
-[![License](https://poser.pugx.org/felixdorn/bc-expr/license)](//packagist.org/packages/felixdorn/bc-expr)
+[![Tests](https://github.com/felixdorn/sey/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/felixdorn/sey/actions/workflows/tests.yml)
+[![Formats](https://github.com/felixdorn/sey/actions/workflows/formats.yml/badge.svg?branch=master)](https://github.com/felixdorn/sey/actions/workflows/formats.yml)
+[![Version](https://poser.pugx.org/felixdorn/sey/version)](//packagist.org/packages/felixdorn/sey)
+[![Total Downloads](https://poser.pugx.org/felixdorn/sey/downloads)](//packagist.org/packages/felixdorn/sey)
+[![License](https://poser.pugx.org/felixdorn/sey/license)](//packagist.org/packages/felixdorn/sey)
 
 Sey, pronounce say, is a powerful math interpreter with infinite-precision.
 
