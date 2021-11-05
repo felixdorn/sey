@@ -8,6 +8,9 @@ use Felix\Sey\Tokens\Func;
 use Felix\Sey\Tokens\Identifier;
 use Felix\Sey\Tokens\Operator;
 
+/**
+ * @internal
+ */
 class SyntaxError extends Exception
 {
     public function __construct(string $message, string|int|float ...$formats)

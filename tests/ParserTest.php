@@ -67,3 +67,10 @@ it('can compute pi', function () {
     $output = Sey::parse('pi()');
     expect($output)->toBe(bcpi());
 });
+
+it('supports utf-8 function name', function () {
+    $output = Sey::parse('éðđß()', functions: [
+        'éðđß' => fn () => 42,
+    ]);
+    expect($output)->toBe('42');
+})->skip();

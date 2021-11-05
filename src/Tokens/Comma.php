@@ -6,6 +6,9 @@ use Felix\Sey\Contracts\Token;
 use Felix\Sey\Exceptions\SyntaxError;
 use Felix\Sey\Runtime;
 
+/**
+ * @internal
+ */
 class Comma extends Token
 {
     public function __construct(public string $value = ',')

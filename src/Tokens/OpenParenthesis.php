@@ -5,6 +5,9 @@ namespace Felix\Sey\Tokens;
 use Felix\Sey\Contracts\Token;
 use Felix\Sey\Runtime;
 
+/**
+ * @internal
+ */
 class OpenParenthesis extends Token
 {
     public function __construct(string $value = '(')

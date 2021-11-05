@@ -11,6 +11,9 @@ use Felix\Sey\Tokens\OpenParenthesis;
 use Felix\Sey\Tokens\Operator;
 use SplStack;
 
+/**
+ * @internal
+ */
 class Runtime
 {
     public Stack $tokens;
@@ -27,7 +30,7 @@ class Runtime
     {
         $this->operatorStack = new SplStack();
         $this->queue         = new SplStack();
-        $this->tokens        = Scanner::scan($expression);
+        $this->tokens        = Lexer::lex($expression);
         $this->expression    = $expression;
         $this->variables     = $variables;
         $this->functions     = $functions;

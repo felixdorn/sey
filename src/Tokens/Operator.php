@@ -6,6 +6,9 @@ use Felix\Sey\Contracts\Token;
 use Felix\Sey\Exceptions\ShouldNotHappen;
 use Felix\Sey\Runtime;
 
+/**
+ * @internal
+ */
 class Operator extends Token
 {
     public static function isValid(string $value): bool

@@ -5,6 +5,9 @@ namespace Felix\Sey\Tokens;
 use Felix\Sey\Contracts\Token;
 use Felix\Sey\Runtime;
 
+/**
+ * @internal
+ */
 class Func extends Token
 {
     public int $argc = 0;
