@@ -7,6 +7,7 @@ use SplDoublyLinkedList;
 
 /**
  * @extends SplDoublyLinkedList<Token>
+ *
  * @internal
  */
 class Stack extends SplDoublyLinkedList
