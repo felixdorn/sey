@@ -1,6 +1,6 @@
 <?php
 
-namespace Felix\BcExpr;
+namespace Felix\Sey;
 
 class TokenStream
 {

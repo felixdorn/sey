@@ -1,9 +1,9 @@
 <?php
 
-namespace Felix\BcExpr\Exceptions;
+namespace Felix\Sey\Exceptions;
 
 use Exception;
-use Felix\BcExpr\Token;
+use Felix\Sey\Token;
 
 class SyntaxError extends Exception
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Felix\BcExpr\Sey;
+use Felix\Sey\Sey;
 
 it('returns zero with an empty expression', function () {
     $output = Sey::parse('');

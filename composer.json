@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Felix\\BcExpr\\": "src/"
+            "Felix\\Sey\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -28,7 +28,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Felix\\BcExpr\\Tests\\": "tests/"
+            "Felix\\Sey\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",

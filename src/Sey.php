@@ -1,8 +1,8 @@
 <?php
 
-namespace Felix\BcExpr;
+namespace Felix\Sey;
 
-use Felix\BcExpr\Exceptions\SyntaxError;
+use Felix\Sey\Exceptions\SyntaxError;
 
 class Sey
 {

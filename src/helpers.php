@@ -1,6 +1,6 @@
 <?php
 
-use Felix\BcExpr\Sey;
+use Felix\Sey\Sey;
 
 if (!function_exists('sey')) {
     function sey(string $code, array $variables = []): string
