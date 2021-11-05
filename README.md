@@ -58,8 +58,7 @@ pi()
 
 ### Variables
 
-You can not define variables in the code as expressions are supposed to be one-liners and semicolons sucks, but you can
-pass them at compile-time.
+You can not define variables in your code but you can pass them at compile-time.
 
 ```php
 sey('2 * r * pi', [
