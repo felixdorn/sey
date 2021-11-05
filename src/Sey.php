@@ -7,19 +7,20 @@ use Felix\BcExpr\Exceptions\SyntaxError;
 class Sey
 {
     protected static array $functions = [
-        'sqrt' => 'bcsqrt',
+        'sqrt'   => 'bcsqrt',
         'powmod' => 'bcpowmod',
-        'pi' => 'bcpi'
+        'pi'     => 'bcpi',
+        '!'      => 'bcfact',
     ];
 
     protected static int $precision = 16;
 
     protected static array $precedence = [
-        Token::T_POW => 4,
+        Token::T_POW   => 4,
         Token::T_TIMES => 3,
-        Token::T_DIV => 3,
-        Token::T_MOD => 3,
-        Token::T_PLUS => 2,
+        Token::T_DIV   => 3,
+        Token::T_MOD   => 3,
+        Token::T_PLUS  => 2,
         Token::T_MINUS => 1,
     ];
     protected static array $operators = [
@@ -53,7 +54,7 @@ class Sey
         }
 
         $tokenStream = TokenStream::create($expression);
-        $context = new RuntimeContext();
+        $context     = new RuntimeContext();
         while (($token = $tokenStream->next()) !== false) {
             self::consumeToken($context, $token, $tokenStream);
         }
@@ -105,7 +106,7 @@ class Sey
                 // Push the returned results, if any, back onto the stack.
                 $context->stack[] = new Token(
                     Token::T_NUMBER,
-                    (string)(static::$functions[$token->value])(...$argv)
+                    (string) (static::$functions[$token->value])(...$argv)
                 );
                 continue;
             }
@@ -117,7 +118,7 @@ class Sey
                 }
 
                 $rightHandSideOp = array_pop($context->stack);
-                $leftHandSideOp = array_pop($context->stack);
+                $leftHandSideOp  = array_pop($context->stack);
                 $context->stackLength--;
 
                 $context->stack[] = new Token(
@@ -144,10 +145,10 @@ class Sey
             Token::T_OPEN_PARENTHESIS => function (RuntimeContext $context, Token $token) {
                 $context->stack[] = $token;
             },
-            Token::T_FUNCTION => [self::class, 'consumeFunction'],
-            Token::T_COMMA => [self::class, 'consumeComma'],
+            Token::T_FUNCTION          => [self::class, 'consumeFunction'],
+            Token::T_COMMA             => [self::class, 'consumeComma'],
             Token::T_CLOSE_PARENTHESIS => [self::class, 'consumeCloseParenthesis'],
-            default => throw SyntaxError::unexpectedToken($token)
+            default                    => throw SyntaxError::unexpectedToken($token)
         };
 
         $consumer($context, $token, $stream);
@@ -155,34 +156,22 @@ class Sey
 
     protected static function evaluateOperator(Token $operator, Token $left, Token $right): string
     {
-        $left = $left->value;
+        $left  = $left->value;
         $right = $right->value;
 
         $previousScale = bcscale();
         bcscale(static::$precision);
         $evaluation = match ($operator->type) {
-            Token::T_PLUS => bcadd($left, $right),
+            Token::T_PLUS  => bcadd($left, $right),
             Token::T_MINUS => bcsub($left, $right),
             Token::T_TIMES => bcmul($left, $right),
-            Token::T_DIV => bcdiv($left, $right),
-            Token::T_MOD => bcmod($left, $right),
-            Token::T_POW => bcpow($left, $right),
+            Token::T_DIV   => bcdiv($left, $right),
+            Token::T_MOD   => bcmod($left, $right),
+            Token::T_POW   => bcpow($left, $right),
         };
         bcscale($previousScale);
+
         return $evaluation;
-    }
-
-    public static function compare(string $number, string $operator, string $comparison): bool
-    {
-        $compared = bccomp($number, $comparison, static::$precision);
-
-        return match ($operator) {
-            ">" => $compared === 1,
-            "<" => $compared === -1,
-            ">=" => $compared === 1 || $compared === 0,
-            "<=" => $compared === -1 || $compared === 0,
-            "=", "==" => $compared === 0
-        };
     }
 
     private static function consumeComma(RuntimeContext $context): void
@@ -212,8 +201,8 @@ class Sey
     {
         // If the token is a function token, then push it onto the stack.
         $context->stack[] = $token;
-        $argc = 0;
-        $parenthesis = 0;
+        $argc             = 0;
+        $parenthesis      = 0;
 
         // we skip the (
         self::consumeToken($context, $stream->next(), $stream);

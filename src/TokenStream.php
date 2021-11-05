@@ -31,11 +31,11 @@ class TokenStream
         // This token will be ignored as we directly call $stream->next() in our while loop in the parser.
         $tokens = [new Token(0, '')];
 
-        preg_match_all('/[,+\-*\/^%()]|\d*\.\d+|\d+\.\d*|\d+|[a-z_A-Z]+[a-z_A-Z0-9]*|[ \t]+/', $code, $matches);
+        preg_match_all('/[,+\-*\/^%()]|\d*\.\d+|\d+\.\d*|\d+|[a-z_A-Z!]+[a-z_A-Z0-9]*|[ \t]+/', $code, $matches);
 
         foreach ($matches[0] as $k => $match) {
             $behind = $matches[0][$k - 1] ?? '';
-            $value = trim($match);
+            $value  = trim($match);
 
             if ($value === '') {
                 continue;

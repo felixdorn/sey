@@ -8,7 +8,7 @@
 [![Total Downloads](https://poser.pugx.org/felixdorn/bc-expr/downloads)](//packagist.org/packages/felixdorn/bc-expr)
 [![License](https://poser.pugx.org/felixdorn/bc-expr/license)](//packagist.org/packages/felixdorn/bc-expr)
 
-Sey, pronounce say, is a powerful math interpreter in which `0.1` plus `0.2` equals `0.3`.
+Sey, pronounce say, is a powerful math interpreter with infinite-precision.
 
 ## Installation
 
@@ -61,7 +61,7 @@ pi()
 ### Variables
 
 You can not define variables in the code as expressions are supposed to be one-liners and semicolons sucks, but you can
-pass them as compile-time.
+pass them at compile-time.
 
 ```php
 sey('2 * r * pi', [
@@ -81,25 +81,6 @@ sey('2 * r * pi', [
 * `!(n)`
   This computes `n!` It's kind of efficient, but you probably want to use a lookup table.
 
-## Comparisons
-
-The `bccomp` function is weird so here's an alternative that (hopefully) makes more sense:
-
-```php
-Sey::compare('1.000100001', '>', '1.0001') // true
-```
-
-Here's the list of the operators available:
-
-* `>`
-* `<`
-* `>=`
-* `<=`
-* `=` or `==`
-
-> Be careful, the comparison will only work for the precision you defined so if your precision is `2` then `1.001` equals `1.00`
-
-## Testing
 
 ```bash
 composer test

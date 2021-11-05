@@ -39,7 +39,22 @@ it('can define and call functions', function () {
     expect($output)->toBe('9.0000000000000000');
 });
 
+it('can define an arbitrary precision', function () {
+    $output = Sey::parse('1 / 3');
+    expect($output)->toBe('0.' . str_repeat('3', Sey::precision()));
 
-it('can define an arbitrary precision');
+    Sey::precision(3);
 
-it('can compare two values',);
+    $output = Sey::parse('1 / 1000');
+    expect($output)->toBe('0.001');
+});
+
+it('can compute a factorial', function () {
+    $output = Sey::parse('!(5)');
+    expect($output)->toBe(bcfact('5'));
+});
+
+it('can compute pi', function () {
+    $output = Sey::parse('pi()');
+    expect($output)->toBe(bcpi());
+});
