@@ -71,13 +71,23 @@ sey('2 * r * pi', [
 
 * `sqrt`: `bcsqrt`
 * `powmod`: `bcpowmod`
-* `pi()`
-  This function returns pi with your defined precision up to 999 digits. You can also use `3` as an approximation, if
-  you're into physics.
+* `pi()`: custom `bcpi` function
 
-* `!(n)`
-  This computes `n!` It's kind of efficient, but you probably want to use a lookup table.
+  This function returns pi with your defined precision up to 999 digits.
 
+* `!(n)`: custom `bcfact` function
+
+  This computes `n!`.
+
+#### Custom functions
+
+They can override built-ins so you can redefine `!` to use a lookup table for example.
+
+```php
+Sey::define('fact', function (int $n, /* as many arguments as you want */) {
+    return $factorials[$n] ?? bcfact($n);
+});
+```
 
 ```bash
 composer test
