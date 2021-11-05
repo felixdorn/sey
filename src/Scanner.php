@@ -2,7 +2,10 @@
 
 namespace Felix\Sey;
 
-class TokenStream
+/**
+ * @internal
+ */
+class Scanner
 {
     protected static array $operatorsToTokenType = [
         '+' => Token::T_PLUS,
@@ -26,7 +29,7 @@ class TokenStream
         $this->cursor = 0;
     }
 
-    public static function create(string $code): self
+    public static function scan(string $code): self
     {
         // This token will be ignored as we directly call $stream->next() in our while loop in the parser.
         $tokens = [new Token(0, '')];

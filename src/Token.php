@@ -6,10 +6,12 @@ class Token
 {
     public const T_NUMBER            = 1;
     public const T_FUNCTION          = 2;
-    public const T_OPEN_PARENTHESIS  = 4;
-    public const T_CLOSE_PARENTHESIS = 8;
+
+        public const T_OPEN_PARENTHESIS  = 4;
+        public const T_CLOSE_PARENTHESIS = 8;
     public const T_IDENTIFIER        = 16;
-    public const T_COMMA             = 32;
+        public const T_COMMA             = 32;
+
     public const T_PLUS              = 64;
     public const T_MINUS             = 128;
     public const T_TIMES             = 256;
@@ -25,6 +27,18 @@ class Token
     {
         $this->type  = $type;
         $this->value = $value;
+    }
+
+    public function isOperator(): bool
+    {
+        return $this->is(
+            Token::T_PLUS,
+            Token::T_MINUS,
+            Token::T_TIMES,
+            Token::T_DIV,
+            Token::T_MOD,
+            Token::T_POW,
+        );
     }
 
     public function is(int ...$comparisons): bool
