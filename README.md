@@ -2,11 +2,11 @@
 
 # Sey
 
-[![Tests](https://github.com/felixdorn/bc-expr/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/felixdorn/bc-expr/actions/workflows/tests.yml)
-[![Formats](https://github.com/felixdorn/bc-expr/actions/workflows/formats.yml/badge.svg?branch=master)](https://github.com/felixdorn/bc-expr/actions/workflows/formats.yml)
-[![Version](https://poser.pugx.org/felixdorn/bc-expr/version)](//packagist.org/packages/felixdorn/bc-expr)
-[![Total Downloads](https://poser.pugx.org/felixdorn/bc-expr/downloads)](//packagist.org/packages/felixdorn/bc-expr)
-[![License](https://poser.pugx.org/felixdorn/bc-expr/license)](//packagist.org/packages/felixdorn/bc-expr)
+[![Tests](https://github.com/felixdorn/sey/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/felixdorn/sey/actions/workflows/tests.yml)
+[![Formats](https://github.com/felixdorn/sey/actions/workflows/formats.yml/badge.svg?branch=main)](https://github.com/felixdorn/sey/actions/workflows/formats.yml)
+[![Version](https://poser.pugx.org/felixdorn/sey/version)](//packagist.org/packages/felixdorn/sey)
+[![Total Downloads](https://poser.pugx.org/felixdorn/sey/downloads)](//packagist.org/packages/felixdorn/sey)
+[![License](https://poser.pugx.org/felixdorn/sey/license)](//packagist.org/packages/felixdorn/sey)
 
 Sey, pronounce say, is a powerful math interpreter with infinite-precision.
 
@@ -84,11 +84,16 @@ sey('2 * r * pi', [
 They can override built-ins so you can redefine `!` to use a lookup table for example.
 
 ```php
-Sey::define('fact', function (int $n, /* as many arguments as you want */) {
+Sey::define('!', function (int $n, /* as many arguments as you want */) {
     return $factorials[$n] ?? bcfact($n);
 });
 ```
+The function name must match the following regex `[a-z_A-Z!]+[a-z_A-Z0-9]*`.
 
+So, first character must be a letter or ! followed by any number of letters or numbers.
+
+
+### Tests
 ```bash
 composer test
 ```
