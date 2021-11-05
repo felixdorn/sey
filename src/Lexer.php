@@ -13,14 +13,14 @@ use Felix\Sey\Tokens\Operator;
 /**
  * @internal
  */
-class Scanner
+class Lexer
 {
-    public static function scan(string $code): Stack
+    public static function lex(string $code): Stack
     {
         // This token will be ignored as we directly call $stream->next() in our while loop in the parser.
         $tokens = new Stack();
 
-        preg_match_all('/[,+\-*\/^%()]|\d*\.\d+|\d+\.\d*|\d+|[a-z_A-Z!]+[a-z_A-Z0-9]*|[ \t]+/', $code, $matches);
+        preg_match_all('/[,+\-*\/^%()]|\d*\.\d+|\d+\.\d*|\d+|[a-z_A-Z!]+[a-zA-Z0-9_]*|[ \t]+/', $code, $matches);
 
         $matches = array_filter($matches[0], fn ($match) => trim($match) !== '');
 
