@@ -24,12 +24,12 @@ class Sey
         Token::T_MINUS => 1,
     ];
     protected static array $operators = [
-        Token::T_PLUS,
-        Token::T_MINUS,
+        Token::T_POW,
         Token::T_TIMES,
         Token::T_DIV,
         Token::T_MOD,
-        Token::T_POW,
+        Token::T_PLUS,
+        Token::T_MINUS,
     ];
 
     public static function define(string $function, callable $definition): void
@@ -37,24 +37,28 @@ class Sey
         static::$functions[$function] = $definition;
     }
 
-    public static function precision(?int $precision = null)
+    public static function precision(?int $precision = null): int
     {
         if ($precision === null) {
             return static::$precision;
         }
 
         static::$precision = $precision;
+        
+        return $precision;
     }
 
     public static function parse(string $expression, array $variables = []): string
     {
         $expression = trim($expression);
+        
         if ($expression === '') {
             return '0';
         }
 
         $tokenStream = TokenStream::create($expression);
         $context     = new RuntimeContext();
+        
         while (($token = $tokenStream->next()) !== false) {
             self::consumeToken($context, $token, $tokenStream);
         }
