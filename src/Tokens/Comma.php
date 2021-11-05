@@ -8,12 +8,17 @@ use Felix\Sey\Runtime;
 
 class Comma extends Token
 {
+    public function __construct(public string $value = ',')
+    {
+
+    }
+
     public function consume(Runtime $runtime): void
     {
         // If the token is a function argument separator (e.g., a comma):
         $pe = false;
 
-        while ($runtime->operatorStack->isEmpty()) {
+        while (!$runtime->operatorStack->isEmpty()) {
             $token = $runtime->operatorStack->top();
 
             if ($token instanceof OpenParenthesis) {
