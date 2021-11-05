@@ -3,24 +3,44 @@
 namespace Felix\Sey\Exceptions;
 
 use Exception;
-use Felix\Sey\Token;
+use Felix\Sey\Contracts\Token;
+use Felix\Sey\Tokens\Func;
+use Felix\Sey\Tokens\Identifier;
+use Felix\Sey\Tokens\Operator;
 
 class SyntaxError extends Exception
 {
+    public function __construct(string $message, string|int|float ...$formats)
+    {
+        parent::__construct(
+            sprintf($message, ...$formats)
+        );
+    }
+
     public static function unexpectedToken(Token|string $token): SyntaxError
     {
         $value = $token instanceof Token ? $token->value : $token;
 
-        return $this->new('Unexpected token %s', $value);
+        return new self('Unexpected token %s', $value);
     }
 
-    public static function new(string $message, float|int|string ...$formats): SyntaxError
+    public static function missingParameters(Func|Operator $token): SyntaxError
     {
-        return new self(sprintf($message, ...$formats));
+        return new self('Missing parameters for %s', $token->value);
     }
 
-    public static function missingParameters(Token $token): SyntaxError
+    public static function incorrectParenthesesNesting(): SyntaxError
     {
-        return $this->new('Missing parameters for %s', $token->value);
+        return new self('Incorrect nesting of parentheses');
+    }
+
+    public static function undefinedVariable(Identifier $identifier): SyntaxError
+    {
+        return new self('Undefined variable %s', $identifier->value);
+    }
+
+    public static function missingParenthesisOrMisplacedComma(): SyntaxError
+    {
+        return new self('Missing `(` or misplaced  `,`');
     }
 }
