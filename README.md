@@ -33,8 +33,6 @@ You may change it:
 \Felix\Sey\Sey:precision(32)
 ```
 
-Now `1 + 1` will be `2.00000000000000000000000000000000`
-
 Under the hood, it just calls `bcscale` for the calculation and then rollbacks to the previous value as to not create
 side effects.
 
