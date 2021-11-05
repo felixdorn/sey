@@ -10,7 +10,6 @@ class Comma extends Token
 {
     public function __construct(public string $value = ',')
     {
-
     }
 
     public function consume(Runtime $runtime): void

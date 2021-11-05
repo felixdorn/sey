@@ -36,9 +36,8 @@ class Runtime
 
     public function run(): string
     {
-        while ($this->tokens->current() !== null) {
-            $this->tokens->current()->consume($this);
-            $this->tokens->next();
+        foreach ($this->tokens as $token) {
+            $token->consume($this);
         }
 
         // no more tokens to read but some operators are still in the stack

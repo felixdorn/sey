@@ -39,6 +39,7 @@
         "test:unit": "pest --colors=always",
         "test": [
             "@test:lint",
+            "@test:types",
             "@test:unit"
         ]
     }

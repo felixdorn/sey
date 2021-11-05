@@ -3,7 +3,6 @@
 namespace Felix\Sey\Contracts;
 
 use Felix\Sey\Runtime;
-use Felix\Sey\Tokens\NullToken;
 
 abstract class Token
 {
