@@ -84,11 +84,16 @@ sey('2 * r * pi', [
 They can override built-ins so you can redefine `!` to use a lookup table for example.
 
 ```php
-Sey::define('fact', function (int $n, /* as many arguments as you want */) {
+Sey::define('!', function (int $n, /* as many arguments as you want */) {
     return $factorials[$n] ?? bcfact($n);
 });
 ```
+The function name must match the following regex `[a-z_A-Z!]+[a-z_A-Z0-9]*`.
 
+So, first character must be a letter or ! followed by any number of letters or numbers.
+
+
+### Tests
 ```bash
 composer test
 ```
