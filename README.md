@@ -79,7 +79,7 @@ Sey::parse('2 * r * pi', [
 
 * `!(n)`: custom `bcfact` function
 
-  This computes `n!`.
+  This computes `n!`, if you need to do it really quickly, you should probably use a lookup table.
 
 #### Custom functions
 
