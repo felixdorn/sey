@@ -23,9 +23,9 @@ composer require felixdorn/sey
 ## Usage
 
 ```php
-Sey::parse('(0.5 + 0.5) / 3)') // 0.3333333333333333
+Sey::parse('(0.5 + 0.5) / 3)'); // 0.3333333333333333
 // or
-sey('a / b', ['a' => 1, 'b' => 2]) // 0.5
+sey('a / b', ['a' => 1, 'b' => 2]); // 0.5
 ```
 
 ### Precision
@@ -35,7 +35,7 @@ By default, the maximum floating precision is 16.
 You may change it:
 
 ```php
-\Felix\Sey\Sey:precision(32)
+\Felix\Sey\Sey:precision(32);
 ```
 
 ## Syntax
@@ -66,7 +66,7 @@ You can not define variables in your code but you can pass them at compile-time.
 Sey::parse('2 * r * pi', [
     'r' => 10,
     'pi' => 3.1415
-])
+]);
 ```
 
 ### Functions
