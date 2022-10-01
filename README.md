@@ -8,7 +8,7 @@
 [![Total Downloads](https://poser.pugx.org/felixdorn/sey/downloads)](//packagist.org/packages/felixdorn/sey)
 [![License](https://poser.pugx.org/felixdorn/sey/license)](//packagist.org/packages/felixdorn/sey)
 
-Sey, pronounce say, is a powerful math interpreter with infinite-precision.
+Sey, pronounce say, is a powerful math interpreter with arbitrary-precision.
 
 ## Installation
 
