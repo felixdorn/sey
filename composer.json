@@ -1,6 +1,6 @@
 {
     "name": "felixdorn/sey",
-    "description": "Sey is a powerful math interpreter with infinite-precision.",
+    "description": "Sey is a powerful math interpreter with arbitrary-precision.",
     "license": "MIT",
     "authors": [
         {
